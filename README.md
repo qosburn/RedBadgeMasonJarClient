@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Mason Jar Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A brochure site for exposure and selling products developed by Mason Jar Designs.
 
 ## Available Scripts
 

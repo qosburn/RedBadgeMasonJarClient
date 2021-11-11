@@ -8,6 +8,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
+  Container,
 } from 'reactstrap';
 
 class AddProduct extends Component {
@@ -21,6 +22,8 @@ class AddProduct extends Component {
       projectOptionChar: '',
       productQuantity: '',
       productPrice: '',
+      image: '',
+      loading: '',
       inCart: false,
       toggle: false, //added for modal
     };
@@ -70,12 +73,38 @@ class AddProduct extends Component {
       console.log(err);
     }
   };
-
+  // this is a work around for reload issue
   makeAddProductWork = () => {
     setTimeout(() => {
       window.location.reload();
     });
   };
+
+  // START UPLOAD SECTION
+  UploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'i8Images');
+    this.setState({ loading: true });
+
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dounpk3nt/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    const File = await res.json();
+    console.log(File.secure_url);
+    this.setState({
+      image: File.secure_url,
+      loading: false,
+      projectPhoto: File.secure_url,
+    });
+  };
+
+  // END UPLOAD SECTION
 
   render() {
     return (
@@ -87,10 +116,27 @@ class AddProduct extends Component {
 
         <Modal isOpen={this.state.toggle} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            <h3>Track Food</h3>
+            <h3>Add Product Item</h3>
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.handleSubmit}>
+              {/*            
+           START PHOTOUPLOAD */}
+              {this.state.loading ? (
+                <h3>Loading...</h3>
+              ) : (
+                <center>
+                  <img
+                    src={this.state.image}
+                    style={{ width: '300px' }}
+                    alt=""
+                  />
+                </center>
+              )}
+
+              {/*            
+           End PHOTOUPLOAD */}
+
               <FormGroup>
                 <Label htmlFor="pType">Product Type</Label>
                 <Input
@@ -121,6 +167,8 @@ class AddProduct extends Component {
                   value={this.state.projectDescription}
                 />
               </FormGroup>
+              {/*            
+           Start PHOTOUPLOAD */}
               <FormGroup>
                 <Label htmlFor="pPhoto">Project Photo</Label>
                 <Input
@@ -130,7 +178,23 @@ class AddProduct extends Component {
                   name="pPhoto"
                   value={this.state.projectPhoto}
                 />
+                <Container>
+                  <br />
+                  <FormGroup>
+                    <Input
+                      type="file"
+                      name="file"
+                      className="photoupload"
+                      placeholder="Upload your file here"
+                      onChange={this.UploadImage}
+                    />
+                  </FormGroup>
+                </Container>
               </FormGroup>
+
+              {/*            
+           End PHOTOUPLOAD */}
+
               <FormGroup>
                 <Label htmlFor="pOptionChar">Project Optional Character</Label>
                 <Input

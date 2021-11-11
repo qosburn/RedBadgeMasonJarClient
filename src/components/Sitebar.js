@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-const Sitebar = (props) => {
-  return (
-    <div className="sitebar">
-      <div className="sitebar-list-styling">
-        <a class="nav" onClick={props.clickLogout}>
-          Logout
-        </a>
+class Sitebar extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="sitebar">
+        <div className="sitebar-list-styling">
+          <a class="nav" onClick={this.props.clickLogout}>
+            Logout
+          </a>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Sitebar;

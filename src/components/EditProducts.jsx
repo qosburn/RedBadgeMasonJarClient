@@ -8,6 +8,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
+  Container,
 } from 'reactstrap';
 
 class EditProduct extends Component {
@@ -21,16 +22,19 @@ class EditProduct extends Component {
       projectOptionChar: this.props.data.projectOptionChar,
       productQuantity: this.props.data.productQuantity,
       productPrice: this.props.data.productPrice,
+      image: '',
+      loading: '',
       inCart: false,
-      //toggle2: false, //added for modal
+      toggle: this.props.toggle, //added for modal
     };
   }
 
-  //   toggle = () => this.setState({ toggle2: !this.state.toggle2 });
+  toggle = () => this.setState({ toggle: !this.state.toggle });
   //   toggle = () => this.setState({ toggle: false });
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('starting');
     try {
       const response = await fetch(
         `http://localhost:3000/product/update/${this.props.data.id}`,
@@ -61,22 +65,67 @@ class EditProduct extends Component {
       console.log(err);
     }
   };
+  // this is a work around for reload issue
   makeEditProductWork = () => {
     setTimeout(() => {
       window.location.reload();
     });
   };
+
+  // START UPLOAD SECTION
+  UploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'i8Images');
+    this.setState({ loading: true });
+
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dounpk3nt/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    const File = await res.json();
+    console.log(File.secure_url);
+    this.setState({
+      image: File.secure_url,
+      loading: false,
+      projectPhoto: File.secure_url,
+    });
+  };
+
+  // END UPLOAD SECTION
+
   render() {
     return (
       <div>
         <h3>Edit </h3>
 
-        <Modal isOpen={true}>
+        <Modal isOpen={this.state.toggle} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             <h3>Track Food</h3>
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.handleSubmit}>
+              {/*            
+           START PHOTOUPLOAD */}
+              {this.state.loading ? (
+                <h3>Loading...</h3>
+              ) : (
+                <center>
+                  <img
+                    src={this.state.image}
+                    style={{ width: '300px' }}
+                    alt=""
+                  />
+                </center>
+              )}
+
+              {/*            
+           End PHOTOUPLOAD */}
+
               <FormGroup>
                 <Label htmlFor="pType">Product Type</Label>
                 <Input
@@ -110,17 +159,36 @@ class EditProduct extends Component {
                   value={this.state.projectDescription}
                 />
               </FormGroup>
+
+              {/*            
+           Start PHOTOUPLOAD */}
               <FormGroup>
                 <Label htmlFor="pPhoto">Project Photo</Label>
                 <Input
-                  name="pPhoto"
                   defaultValue={this.props.data.projectPhoto}
                   onChange={(e) =>
                     this.setState({ projectPhoto: e.target.value })
                   }
+                  name="pPhoto"
                   value={this.state.projectPhoto}
                 />
+                <Container>
+                  <br />
+                  <FormGroup>
+                    <Input
+                      type="file"
+                      name="file"
+                      className="photoupload"
+                      placeholder="Upload your file here"
+                      onChange={this.UploadImage}
+                    />
+                  </FormGroup>
+                </Container>
               </FormGroup>
+
+              {/*            
+           End PHOTOUPLOAD */}
+
               <FormGroup>
                 <Label htmlFor="pOptionChar">Project Optional Character</Label>
                 <Input
