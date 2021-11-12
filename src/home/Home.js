@@ -116,6 +116,7 @@ class Home extends Component {
   render() {
     return (
       <>
+        <h1> Welcome to MJD</h1>
         <CardColumns> {this.prodMapper()}</CardColumns>
 
         {this.state.toggle2 && (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -10,66 +10,76 @@ import Auth from './auth/Auth';
 import './App.css';
 import AddProduct from './components/AddProduct';
 
-function App() {
-  const [sessionToken, setSessionToken] = useState('');
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sessionToken: '',
+    };
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     if (localStorage.getItem('token')) {
-      setSessionToken(localStorage.getItem('token'));
+      this.setState({ sessionToken: localStorage.getItem('token') });
     }
-  }, []);
-
-  const updateToken = (newToken) => {
+  }
+  updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
-    setSessionToken(newToken);
-    console.log(sessionToken);
+    this.setState({ sessionToken: newToken });
+    console.log(this.sessionToken);
   };
 
-  const clearToken = () => {
+  clearToken = () => {
     localStorage.clear();
-    setSessionToken('');
+    this.setState({ sessionToken: '' });
   };
 
-  const protectedViews = () => {
-    return sessionToken === localStorage.getItem('token') ? (
+  protectedViews = () => {
+    return this.state.sessionToken === localStorage.getItem('token') ? (
       <div>
         Happy MOre JOY
-        <Home token={sessionToken} />
+        <Home token={this.state.sessionToken} />
       </div>
     ) : (
-      <Auth updateToken={updateToken} />
+      <Auth updateToken={this.updateToken} />
     );
   };
-  const protectedViewSide = () => {
-    return sessionToken === localStorage.getItem('token') ? (
+
+  protectedViewSide = () => {
+    return this.state.sessionToken === localStorage.getItem('token') ? (
       <div>
-        <Sitebar clickLogout={clearToken} /> <AddProduct token={sessionToken} />
+        <Sitebar clickLogout={this.clearToken} />{' '}
+        <AddProduct token={this.state.sessionToken} />
       </div>
     ) : (
       ' '
     );
   };
 
-  return (
-    <Container>
-      <div>
-        <Header />
-        <Router>
+  render() {
+    return (
+      <>
+        <Container>
           <div>
-            <Row>
-              <div class="sidebar">
-                <Col md="25">{protectedViewSide()} </Col>
+            <Header />
+            <Router>
+              <div>
+                <Row>
+                  <div class="sidebar">
+                    <Col md="25">{this.protectedViewSide()} </Col>
+                  </div>
+                  <div class="wrapper">
+                    <Col md="9">{this.protectedViews()} </Col>
+                  </div>
+                  <div class="footer">Copyright &copy; 2021</div>
+                </Row>
               </div>
-              <div class="wrapper">
-                <Col md="9">{protectedViews()} </Col>
-              </div>
-              <div class="footer">Copyright &copy; 2021</div>
-            </Row>
+            </Router>
           </div>
-        </Router>
-      </div>
-    </Container>
-  );
+        </Container>
+      </>
+    );
+  }
 }
 
 export default App;
