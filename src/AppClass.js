@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'reactstrap';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Header from './components/Header';
 import Sitebar from './components/Sitebar';
 import Home from './home/Home';
 import Auth from './auth/Auth';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap';
-import { BrowserRouter as Router } from 'react-router-dom';
 import AddProduct from './components/AddProduct';
 
 function App() {
