@@ -9,6 +9,7 @@ import {
   ModalBody,
   ModalHeader,
 } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 class SignUpClass extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class SignUpClass extends Component {
     event.preventDefault();
     console.log('firing');
     try {
-      const response = await fetch('http://localhost:3000/user/create', {
+      const response = await fetch(`${APIURL}/user/create`, {
         method: 'POST',
         body: JSON.stringify({
           emailAddress: this.state.emailAddress,

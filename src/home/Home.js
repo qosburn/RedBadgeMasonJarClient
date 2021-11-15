@@ -13,6 +13,7 @@ import {
   CardGroup,
 } from 'reactstrap';
 import EditProduct from '../components/EditProducts';
+import APIURL from '../helpers/environment';
 
 class Home extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Home extends Component {
     // event.preventDefault();
     console.log('firing');
     try {
-      const response = await fetch('http://localhost:3000/product/get', {
+      const response = await fetch(`${APIURL}/product/get`, {
         method: 'GET',
 
         headers: new Headers({
@@ -49,7 +50,7 @@ class Home extends Component {
   }
 
   deleteProductEntry = (id) => {
-    fetch(`http://localhost:3000/product/delete/${id}`, {
+    fetch(`${APIURL}/product/delete/${id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

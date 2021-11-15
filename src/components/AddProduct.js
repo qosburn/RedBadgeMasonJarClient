@@ -10,6 +10,7 @@ import {
   ModalHeader,
   Container,
 } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 class AddProduct extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class AddProduct extends Component {
     event.preventDefault();
     console.log('firing');
     try {
-      const response = await fetch('http://localhost:3000/product/create', {
+      const response = await fetch(`${APIURL}/product/create`, {
         method: 'POST',
         body: JSON.stringify({
           productType: this.state.productType,

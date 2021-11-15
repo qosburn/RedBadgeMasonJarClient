@@ -10,6 +10,7 @@ import {
   ModalHeader,
   Container,
 } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 class EditProduct extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class EditProduct extends Component {
     console.log('starting');
     try {
       const response = await fetch(
-        `http://localhost:3000/product/update/${this.props.data.id}`,
+        `${APIURL}/product/update/${this.props.data.id}`,
         {
           method: 'PUT',
           body: JSON.stringify({
