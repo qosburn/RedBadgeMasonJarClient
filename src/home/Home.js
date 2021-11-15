@@ -10,6 +10,7 @@ import {
   // CardSubtitle,
   Button,
   CardBody,
+  CardGroup,
 } from 'reactstrap';
 import EditProduct from '../components/EditProducts';
 
@@ -87,6 +88,7 @@ class Home extends Component {
                 <li>Product Qty: {data.productQuantity}</li>
                 <li>Product Price: {data.productPrice}</li>
               </ul>
+
               <Button
                 className="button2"
                 onClick={(event) => {
@@ -117,7 +119,7 @@ class Home extends Component {
     return (
       <>
         <h1> Welcome to MJD</h1>
-        <CardColumns> {this.prodMapper()}</CardColumns>
+        <CardGroup> {this.prodMapper()}</CardGroup>
 
         {this.state.toggle2 && (
           <EditProduct

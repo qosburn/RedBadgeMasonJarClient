@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+} from 'reactstrap';
 
 class SignUpClass extends Component {
   constructor(props) {
@@ -7,8 +16,12 @@ class SignUpClass extends Component {
     this.state = {
       emailAddress: '',
       passwordhash: '',
+      toggle: false, //added for modal
     };
   }
+
+  toggle = () => this.setState({ toggle: !this.state.toggle });
+
   handleSubmit = async (event) => {
     event.preventDefault();
     console.log('firing');
@@ -34,30 +47,43 @@ class SignUpClass extends Component {
   render() {
     return (
       <div>
-        <h3>Sign In</h3>
+        <p class="nav" onClick={this.toggle}>
+          Login
+        </p>
 
-        <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              onChange={(e) => this.setState({ emailAddress: e.target.value })}
-              name="email"
-              value={this.state.emailAddress}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="passwordhash">Password</Label>
-            <Input
-              onChange={(e) => this.setState({ passwordhash: e.target.value })}
-              type="password"
-              name="passwordhash"
-              value={this.state.passwordhash}
-            />
-          </FormGroup>
-          <Button className="button" type="submit">
-            Signup
-          </Button>
-        </Form>
+        <Modal isOpen={this.state.toggle} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>
+            <h3>Add Product Item</h3>
+          </ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.handleSubmit}>
+              <FormGroup>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  onChange={(e) =>
+                    this.setState({ emailAddress: e.target.value })
+                  }
+                  name="email"
+                  value={this.state.emailAddress}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="passwordhash">Password</Label>
+                <Input
+                  onChange={(e) =>
+                    this.setState({ passwordhash: e.target.value })
+                  }
+                  type="password"
+                  name="passwordhash"
+                  value={this.state.passwordhash}
+                />
+              </FormGroup>
+              <Button className="button" type="submit" onClick={this.toggle}>
+                Login
+              </Button>
+            </Form>
+          </ModalBody>
+        </Modal>
       </div>
     );
   }

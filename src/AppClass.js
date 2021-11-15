@@ -71,7 +71,7 @@ class App extends Component {
                   <div class="wrapper">
                     <Col md="9">{this.protectedViews()} </Col>
                   </div>
-                  <div class="footer">Copyright &copy; 2021</div>
+                  <div class="footer">Copyright &copy; 20213333</div>
                 </Row>
               </div>
             </Router>

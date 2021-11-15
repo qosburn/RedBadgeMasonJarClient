@@ -9,17 +9,24 @@ class Auth extends Component {
   }
   render() {
     return (
-      <Container className="auth-container">
-        <Row>
-          <Col className="loginpage">
-            <LoginClass updateToken={this.props.updateToken} />
+      //   <Container className="auth-container">
+      //     <Row>
+      //       <Col className="loginpage">
+      //         <LoginClass updateToken={this.props.updateToken} />
+      //       </Col>
+      //       <Col>
+      //         <SignupUpClass updateToken={this.props.updateToken} />
+      //       </Col>
+      //     </Row>
+      //   </Container>
+      <>
+        <LoginClass
+          className="loginpage"
+          updateToken={this.props.updateToken}
+        />
 
-            <center>
-              <SignupUpClass updateToken={this.props.updateToken} />
-            </center>
-          </Col>
-        </Row>
-      </Container>
+        <SignupUpClass updateToken={this.props.updateToken} />
+      </>
     );
   }
 }
