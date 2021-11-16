@@ -2,11 +2,11 @@
 
 This project is the start of a brochure site for exposure and selling products developed by Mason Jar Designs.
 
-## Available Scripts
+## Phases
 
-In the project directory, you can run:
+This project is is a phased approach focused on admin
 
-### `npm start`
+### `Current Phase`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
