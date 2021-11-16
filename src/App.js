@@ -62,7 +62,7 @@ class App extends Component {
 
   protectedViews1 = () => {
     return this.state.sessionToken === localStorage.getItem('token') ? (
-      <div>Your logged in</div>
+      ''
     ) : (
       <Auth updateToken={this.updateToken} />
     );
@@ -71,7 +71,6 @@ class App extends Component {
   protectedViews2 = () => {
     return this.state.sessionToken === localStorage.getItem('token') ? (
       <div>
-        Happy MOre JOY
         <Home token={this.state.sessionToken} />
       </div>
     ) : (
@@ -117,14 +116,18 @@ class App extends Component {
                   <div className="wrapper">
                     <Col md="12">
                       <HCar1 />
-                      <h2>
-                        Our fascination with the letterpress has lead us to
-                        experiment with using newer tech (lasers and computer
-                        added routers) to create wood lettering for printing. It
-                        has been a fun experiment brought many request if these
-                        could be purchased for decoration. Just put in your
-                        requirements and we will whittle you a piece of joy.
-                      </h2>
+                      <div className="sectBcopy">
+                        <h2>BigO Woodblocks</h2>
+                        <p className="sectBcopy">
+                          Our fascination with the letterpress has lead us to
+                          experiment with using newer tech (lasers and computer
+                          added routers) to create wood lettering for printing.
+                          It has been a fun experiment brought many request if
+                          these could be purchased for decoration. Just put in
+                          your requirements and we will whittle you a piece of
+                          joy.
+                        </p>
+                      </div>
                     </Col>
                   </div>
                 </Row>
@@ -134,9 +137,12 @@ class App extends Component {
                   </div>
                 </Row> */}
                 <Row>
-                  <Col>
-                    <CardGroup>{this.protectedViews2()}</CardGroup>
-                  </Col>
+                  <div className="wrapper">
+                    <Col>
+                      <h1 id="currentOffer">Current Offerings</h1>
+                      <CardGroup>{this.protectedViews2()}</CardGroup>
+                    </Col>
+                  </div>
                 </Row>
                 {/* <Row>
                   <div className="wrapper">
@@ -147,6 +153,7 @@ class App extends Component {
                   <div className="wrapper">
                     <Col md="12">
                       <HCar1 />
+                      <h1 id="aboutus">About Us</h1>
                       <img
                         src="https://res.cloudinary.com/dounpk3nt/image/upload/v1637069448/i8thatImages/pwsyj2neijmlramk6tun.png"
                         class="img-fluid"
@@ -159,16 +166,18 @@ class App extends Component {
                   <div className="wrapper">
                     <Col md="12">
                       <HCar1 />
-                      <h2>
-                        We like to travel and our map making projects came out
-                        of a personal need to acknowledge and record the special
-                        place we’ve been to. Our home life is enriched by having
-                        these memories present on our walls. Friends comment and
-                        we have responded by expanding this as an offering. If
-                        you travel we would love to make you an artwork to help
-                        preserve that
-                        experience.https://res.cloudinary.com/dounpk3nt/image/upload/v1637075474/i8thatImages/gvklkpy3yopofkyimhon.png
-                      </h2>
+                      <div className="sectBcopy">
+                        <h2>Blue Skies</h2>
+                        <p className="sectBcopy">
+                          We like to travel and our map making projects came out
+                          of a personal need to acknowledge and record the
+                          special place we’ve been to. Our home life is enriched
+                          by having these memories present on our walls. Friends
+                          comment and we have responded by expanding this as an
+                          offering. If you travel we would love to make you an
+                          artwork to help preserve that experience.
+                        </p>
+                      </div>
                     </Col>
                   </div>
                 </Row>
@@ -176,6 +185,7 @@ class App extends Component {
                   <div className="wrapper">
                     <Col md="12">
                       <HCar1 />
+                      <h1 id="futureproj">Future Projects</h1>
                       <img
                         src="https://res.cloudinary.com/dounpk3nt/image/upload/v1637075474/i8thatImages/gvklkpy3yopofkyimhon.png"
                         class="img-fluid"
@@ -188,15 +198,18 @@ class App extends Component {
                   <div className="wrapper">
                     <Col md="12">
                       <HCar1 />
-                      <h2>
-                        We like to travel and our map making projects came out
-                        of a personal need to acknowledge and record the special
-                        place we’ve been to. Our home life is enriched by having
-                        these memories present on our walls. Friends comment and
-                        we have responded by expanding this as an offering. If
-                        you travel we would love to make you an artwork to help
-                        preserve that experience.
-                      </h2>
+
+                      <div className="sectBcopy">
+                        <h2>Always Thinking</h2>
+                        <p className="sectBcopy">
+                          Countless Ideas but only so much time in the day.
+                          Still we take the time to put down some notes and try
+                          and slot new projects into our busy days. Here are
+                          just a few of our idea ramblings that have risen to
+                          the top. Please let us know what you would like for to
+                          bring to life next.
+                        </p>
+                      </div>
                     </Col>
                   </div>
                 </Row>

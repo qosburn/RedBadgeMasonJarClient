@@ -110,7 +110,6 @@ class AddProduct extends Component {
   render() {
     return (
       <div>
-        <h3>Add Creation</h3>
         <p class="nav" onClick={this.toggle}>
           Create Product
         </p>

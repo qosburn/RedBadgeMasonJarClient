@@ -22,7 +22,6 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <div>this woud come before</div>
         <Navbar
           color="light"
           py-5
@@ -36,26 +35,16 @@ class Header extends Component {
           <Collapse navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="#currentOffer">CURRENT OFFERINGS</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
+                <NavLink href="#aboutus">ABOUT US</NavLink>
               </NavItem>
-              <UncontrolledDropdown inNavbar nav>
-                <DropdownToggle caret nav>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="#futureproj">FUTURE PROJECTS</NavLink>
+              </NavItem>
             </Nav>
-            <NavbarText>Simple Text</NavbarText>
+            {/* <NavbarText>Simple Text</NavbarText> */}
           </Collapse>
         </Navbar>
       </div>

@@ -1,3 +1,57 @@
+:root {
+  --red: #ed6464;
+  --orange: #e4844a;
+  --yellow: #f6ab0b;
+  --gray: #837c6b;
+  --tan: #dbad85;
+  --egg: #e4dfd3;
+  --whit: #ffffff;
+  --font-one: 'Merriweather', sans-serif;
+  --font-two: 'Lato', sans-serif;
+}
+
+.card-text {
+  font-family: var(--font-two);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.card-title {
+  font-family: var(--font-one);
+  font-weight: 800;
+  /* font-style: italic; */
+  font-size: 24px;
+  margin-left: 15px;
+}
+ul {
+  font-family: var(--font-two);
+  font-weight: 400;
+  /* font-style: italic; */
+  font-size: 18px;
+  /* padding: 20px 1px 5px 1px; */
+  margin-left: -10px;
+}
+
+.sectBcopy {
+  font-family: var(--font-two);
+  font-weight: 300;
+  /* font-style: italic; */
+  font-size: 18px;
+  /* padding: 20px 20px 5px 20px; */
+  margin: -40px 40px 60px 40px;
+  z-index: 1;
+  background: #ffffff;
+  line-height: 30px;
+}
+h2 {
+  font-family: var(--font-two);
+  font-weight: 600;
+  /* font-style: italic; */
+  font-size: 28px;
+  padding: 20px 1px 5px 1px;
+  margin: -10px 20px 40px 40px;
+}
+
 .navbar-custom {
   height: 100px;
 }
@@ -34,15 +88,25 @@
 }
 
 .footer {
-  /* position: absolute; */
-  left: 60px;
-  bottom: 100px;
-  text-align: center;
-  font-size: 12pt;
-  padding: 0 15px;
-  height: 80px;
-  line-height: 80px;
-  font-family: 'Yaldevi', sans-serif;
-  margin-top: 50px;
-  margin-bottom: 150px;
+  background: #271d1d;
+  color: white;
+  /* clip-path: polygon(0 10%, 100% 22%, 100% 40%, 0 100%);
+  padding: 5rem 5%; */
+  /* margin-top: 50px;
+  margin-bottom: 150px; */
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #c7af25;
+  margin-right: 50px;
+  margin-left: 20px;
+}
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited {
+  background-color: #c7af25;
+  margin-right: 50px;
 }

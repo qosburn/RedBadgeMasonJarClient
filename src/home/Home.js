@@ -87,11 +87,11 @@ class Home extends Component {
                 <li>Product Description: {data.projectDescription}</li>
                 <li>Product Options: {data.projectOptionChar}</li>
                 <li>Product Qty: {data.productQuantity}</li>
-                <li>Product Price: {data.productPrice}</li>
+                <li>Product Price: ${data.productPrice}</li>
               </ul>
 
               <Button
-                className="button2"
+                className="btn-primary"
                 onClick={(event) => {
                   this.toggle2();
                   this.editProductEntry(data);
@@ -101,7 +101,7 @@ class Home extends Component {
                 Edit
               </Button>
               <Button
-                className="button1"
+                className="btn-secondary"
                 onClick={() => {
                   this.deleteProductEntry(data.id);
                 }}
@@ -119,7 +119,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        <h1> Welcome to MJD</h1>
         <CardGroup> {this.prodMapper()}</CardGroup>
 
         {this.state.toggle2 && (
