@@ -1,6 +1,6 @@
 # Mason Jar Store
 
-A brochure site for exposure and selling products developed by Mason Jar Designs.
+This project is the start of a brochure site for exposure and selling products developed by Mason Jar Designs.
 
 ## Available Scripts
 

@@ -13,6 +13,7 @@ import {
   NavItem,
   NavLink,
   NavbarText,
+  CardGroup,
 } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -105,7 +106,7 @@ class App extends Component {
                     <Col md="12">
                       <HCar1 />
                       <img
-                        src="https://i.etsystatic.com/14096576/r/il/4a1ce8/2040388216/il_794xN.2040388216_r1mh.jpg"
+                        src="https://res.cloudinary.com/dounpk3nt/image/upload/v1637066568/i8thatImages/n3j2xpriniq6yjmlkgyt.png"
                         class="img-fluid"
                         alt="stuff"
                       ></img>
@@ -117,13 +118,12 @@ class App extends Component {
                     <Col md="12">
                       <HCar1 />
                       <h2>
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchang
+                        Our fascination with the letterpress has lead us to
+                        experiment with using newer tech (lasers and computer
+                        added routers) to create wood lettering for printing. It
+                        has been a fun experiment brought many request if these
+                        could be purchased for decoration. Just put in your
+                        requirements and we will whittle you a piece of joy.
                       </h2>
                     </Col>
                   </div>
@@ -133,7 +133,11 @@ class App extends Component {
                     <Col md="3">{this.protectedViewSide()} </Col>
                   </div>
                 </Row> */}
-                <Row>{this.protectedViews2()}</Row>
+                <Row>
+                  <Col>
+                    <CardGroup>{this.protectedViews2()}</CardGroup>
+                  </Col>
+                </Row>
                 {/* <Row>
                   <div className="wrapper">
                     <Col md="9">{this.protectedViews()} </Col>
@@ -144,10 +148,55 @@ class App extends Component {
                     <Col md="12">
                       <HCar1 />
                       <img
-                        src="https://i.etsystatic.com/14096576/r/il/4a1ce8/2040388216/il_794xN.2040388216_r1mh.jpg"
+                        src="https://res.cloudinary.com/dounpk3nt/image/upload/v1637069448/i8thatImages/pwsyj2neijmlramk6tun.png"
                         class="img-fluid"
                         alt="stuff"
                       ></img>
+                    </Col>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="wrapper">
+                    <Col md="12">
+                      <HCar1 />
+                      <h2>
+                        We like to travel and our map making projects came out
+                        of a personal need to acknowledge and record the special
+                        place we’ve been to. Our home life is enriched by having
+                        these memories present on our walls. Friends comment and
+                        we have responded by expanding this as an offering. If
+                        you travel we would love to make you an artwork to help
+                        preserve that
+                        experience.https://res.cloudinary.com/dounpk3nt/image/upload/v1637075474/i8thatImages/gvklkpy3yopofkyimhon.png
+                      </h2>
+                    </Col>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="wrapper">
+                    <Col md="12">
+                      <HCar1 />
+                      <img
+                        src="https://res.cloudinary.com/dounpk3nt/image/upload/v1637075474/i8thatImages/gvklkpy3yopofkyimhon.png"
+                        class="img-fluid"
+                        alt="stuff"
+                      ></img>
+                    </Col>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="wrapper">
+                    <Col md="12">
+                      <HCar1 />
+                      <h2>
+                        We like to travel and our map making projects came out
+                        of a personal need to acknowledge and record the special
+                        place we’ve been to. Our home life is enriched by having
+                        these memories present on our walls. Friends comment and
+                        we have responded by expanding this as an offering. If
+                        you travel we would love to make you an artwork to help
+                        preserve that experience.
+                      </h2>
                     </Col>
                   </div>
                 </Row>
