@@ -57,7 +57,7 @@ class SignUpClass extends Component {
 
         <Modal isOpen={this.state.toggle} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            <h3>Add Product Item</h3>
+            <h3>Signup</h3>
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.handleSubmit}>
